@@ -1,5 +1,4 @@
 const playwright = require('playwright');
-const windowObject = this;
 
 (async () => {
   const browser = await playwright.chromium.launch({
@@ -9,10 +8,12 @@ const windowObject = this;
   await page.goto('https://www.instagram.com/becycleberlin/');
   await page.waitForTimeout(1000); // wait for 1 seconds
   await page.locator('button._acan._acao._acas').click();
+  // use your fb credentials
   await page
     .getByPlaceholder('Email address or phone number')
-    .fill('03237853566');
-  await page.getByPlaceholder('Password').fill('bushylove4u1');
+    .fill('');
+  await page.getByPlaceholder('Password').fill('');
+  
   await page.locator('button#loginbutton').click();
   const allInstagramData = [];
   const instagramProfile = {
@@ -45,5 +46,6 @@ const windowObject = this;
   allInstagramData.push(instagramProfile);
   console.log(listOfFollower);
   console.log(allInstagramData);
+
   //   await browser.close();
 })();
